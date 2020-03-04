@@ -1,27 +1,25 @@
-import React, { Component } from "react";
-import jwt_decode from "jwt-decode";
+import React, { Component } from 'react'
+import jwt_decode from 'jwt-decode'
 
 class Profile extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
-      firstName: "",
-      lastName: "",
-      phoneNumber: "",
-      email: "",
+      first_name: '',
+      last_name: '',
+      email: '',
       errors: {}
-    };
+    }
   }
 
   componentDidMount() {
-    const token = localStorage.usertoken;
-    const decoded = jwt_decode(token);
+    const token = localStorage.usertoken
+    const decoded = jwt_decode(token)
     this.setState({
-      firstName: decoded.firstName,
-      lastName: decoded.lastName,
-      phoneNumber: decoded.phoneNumber,
+      first_name: decoded.first_name,
+      last_name: decoded.last_name,
       email: decoded.email
-    });
+    })
   }
 
   render() {
@@ -34,16 +32,12 @@ class Profile extends Component {
           <table className="table col-md-6 mx-auto">
             <tbody>
               <tr>
-                <td>First Name</td>
-                <td>{this.state.firstName}</td>
+                <td>Fist Name</td>
+                <td>{this.state.first_name}</td>
               </tr>
               <tr>
                 <td>Last Name</td>
-                <td>{this.state.lastName}</td>
-              </tr>
-              <tr>
-                <td>Phone Number</td>
-                <td>{this.state.phoneNumber}</td>
+                <td>{this.state.last_name}</td>
               </tr>
               <tr>
                 <td>Email</td>
@@ -53,8 +47,8 @@ class Profile extends Component {
           </table>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Profile;
+export default Profile

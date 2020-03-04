@@ -1,25 +1,26 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 // Create Schema
 const UserSchema = new Schema({
-  //Basic Information
-  firstName: { type: String, required: true },
-  lastName: { type: String, required: true },
-  phoneNumber: { type: String, required: true },
-  email: { type: String, unique: true, required: true },
-  password: { type: String, required: true },
+  first_name: {
+    type: String
+  },
+  last_name: {
+    type: String
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  }
+})
 
-  //Profile Information
-  city: { type: String, required: true },
-  state: { type: String, required: true },
-  title: { type: String, required: true },
-  image: { type: String, required: false }, //How do we allow users to upload and store images in the database?
-  bio: { type: String, required: false },
-  category: { type: Array, required: true }, //Array Mongoose //How do we store multiple selections?
-  priceRange: { type: String, required: true }
-});
-
-const User = mongoose.model("users", UserSchema);
-
-module.exports = User;
+module.exports = User = mongoose.model('users', UserSchema)

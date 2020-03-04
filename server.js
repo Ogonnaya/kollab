@@ -3,7 +3,7 @@ var cors = require("cors");
 var bodyParser = require("body-parser");
 var app = express();
 const mongoose = require("mongoose");
-var port = process.env.PORT || 3001;
+var port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -13,7 +13,7 @@ app.use(
   })
 );
 
-const mongoURI = "mongodb://localhost:27017/KollabTHREE";
+const mongoURI = "mongodb://localhost:27017/mernloginreg";
 
 mongoose
   .connect(mongoURI, { useNewUrlParser: true })
